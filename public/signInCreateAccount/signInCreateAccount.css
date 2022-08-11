@@ -1,0 +1,167 @@
+:root {
+    --background-color: #F2F4F3;
+    --main-color: #7440b5;
+    --accent-color: #c0a2e5;
+    --font-color: black;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+/* white box containing all content */
+.contentBox {
+    max-width: 540px;
+    min-width: 300px;
+    margin: 20px auto 0;
+    padding: 50px 50px 40px;
+    border: 1px solid #dfdfdf;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.contentBox > * {
+    display: block;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .contentBox {
+        max-width: 100%;
+        max-height: 100%
+    }
+}
+
+/* input boxes */
+.inputField > input {
+    width: 70%;
+    height: 20px;
+    display: block;
+
+    margin: 20px auto 0;
+    padding: 10px;
+    border: 2px solid var(--accent-color);
+    border-radius: 6px;
+
+    font-size: 1em;
+}
+
+/* Below input boxes; forgot password link and submit button */
+.belowInput {
+    width: 70%;
+    margin: 20px auto 0;
+}
+
+/* .forgotPassword {
+    float: left;
+    text-decoration: none;
+} */
+
+.submit {
+    /* float: right; */
+    width: 40%;
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: var(--main-color);
+    color:white;
+}
+.submit:hover {
+    background-color: var(--accent-color);
+    color:black;
+}
+
+.error {
+    color: red;
+}
+
+/* ------------------- create account specific -------------------*/
+
+/* First and last name entry (createAccount) */
+.nameEntry > input {
+    width: 32.5%;
+    display: inline-block;
+
+    margin: 20px auto 0;
+    padding: 10px;
+    border: 2px solid var(--accent-color);
+    border-radius: 6px;
+
+    font-size: 1em;
+}
+
+.showPasswordCheck {
+    margin: 20px auto 0;
+}
+
+.submitCreate {
+    margin: 25px auto 0;
+    float: none;
+}
+
+/* ------------------- sign in specific -------------------*/
+
+/* Third party sign in options: */
+
+.thirdParty {
+    margin-top: 40px;
+}
+
+.thirdParty > h2 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+h2 span {
+    background:#fff;
+    padding:0 10px;
+}
+
+.googleButton {
+    width: 100%;
+}
+
+/* Apple and Google Sign in divs */
+.signin-button {
+    display: block;
+    width: 40%;
+    height: 40px;
+    margin: 30px auto 0;
+}
+
+.g-signin2{
+    width: 100%;
+  }
+
+  .g-signin2 > div{
+    margin: 30px auto;
+  }
+
+/* ----------------------------- */
+.wrongPageLink {
+    margin: 30px auto 0;
+}
+
+.wrongPageLink > a {
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    background-color: lightgray;
+}
+
+.wrongPageLink > a:hover {
+    padding: 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    background-color: var(--accent-color);
+}

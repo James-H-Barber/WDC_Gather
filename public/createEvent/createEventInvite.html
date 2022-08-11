@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <title>Create Eventy</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/stylesheets/style.css" id="main-stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+        <!--js-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="createEvent.js" defer></script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDARgz5-Kde9sxr-6ty1hzuiZ--jHO8Lgw&libraries=places&callback=initMap"></script>
+        <script src index.js></script>
+        <script src="/js/svg-inject.js"></script>
+        <script defer src="/js/nav.js"></script>
+        <script defer src="/js/page.js"></script>
+    </head>
+    <body>
+        <div id="head"></div>
+        <div class = "tab-create">
+            <div class = "tab-tabs">
+                <div class = "active">1.Name</div>
+                <div class = "active">2.Invite</div>
+                <div>3.Time</div>
+                <div>4.Location</div>
+            </div>
+            <div class = "tab-body">
+                <div class = "details active">
+                    <h2>Invite Users</h2>
+                    <div id = "invite"> <!--for Vue-->
+                        <div class = "form-input">
+                            <span>Enter guests email</span>
+                            <input id = "invite" type = "text" v-model = "emailField" placeholder = "Enter Users Email" required v-model="emailField">
+                            <span>Enter guests name/ description</span>
+                            <input id = "description" type = "text" placeholder = "Enter guests name/description" required>
+                            <div id = "inviteUsers" class = "form-input">
+                                <button id = "inviteButton" class = "button" onclick = "addGuests()" v-on:click="getEventID()">Invite User</button>
+                            </div>
+                            <br>
+                            <p class="error" v-if="inputError">{{ errorMsg }}</p>
+                            <h3>Guest List: </h3>
+                            <div class = "guests" id = "guestList">
+                                <!--guest list goes here-->
+                            </div>
+                            <form action = "/createEvent/createEventTime.html">
+                                <div class = "form-input">
+                                    <button class = "button" type = "submit">Next</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <!--flatpickr for datetime-->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</html>

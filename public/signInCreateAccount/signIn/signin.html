@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../signInCreateAccount.css">
+        <title>Sign In</title>
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Serif&family=Raleway&display=swap" rel="stylesheet">
+
+        <!-- apple -->
+        <!-- <meta name="appleid-signin-client-id" content="[CLIENT_ID]">
+        <meta name="appleid-signin-scope" content="[SCOPES]">
+        <meta name="appleid-signin-redirect-uri" content="[REDIRECT_URI]">
+        <meta name="appleid-signin-state" content="[STATE]"> -->
+
+        <!-- Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="signin.js" defer></script>
+
+        <!-- Google Sign in -->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-plugin_name" content="APP">
+        <meta name="google-signin-client_id" content="480299986564-8qblnt62cqli9vrl8lkb3o37bedgomed.apps.googleusercontent.com">
+    </head>
+    <body>
+        <div>
+            <a href="../../index.html"><img src="../../src/img/logo.png"></a>
+            <hr>
+        </div>
+
+        <!-- All sign in option contained inside white div -->
+        <div class="contentBox">
+            <h2>Sign In</h2>
+
+            <!-- standard sign in section -->
+
+            <div id = "signIn" class="standardSignIn">
+                <div class="inputField">
+                    <input type="text" placeholder="E-mail address" v-model="email"/>
+                    <input type="password" placeholder="Password" v-model="password"/>
+                </div>
+                <div class="belowInput">
+                    <p class="error" v-if="inputError">{{ errorMsg }}</p>
+                    <!-- <a href="#" class="forgotPassword">Forgot password</a> -->
+                    <button class="submit" v-on:click="checkInput()">Sign in</button>
+                </div>
+            </div>
+
+            <!-- third party sign in section -->
+            <div class="thirdParty">
+                <h2><span>Or</span></h2>
+                <div class="thirdPartyOptions">
+                    <div class="g-signin2" data-onsuccess="onSignIn">button</div>
+                    <!-- <div class="signin-button">
+                        <a><img class="googleButton" src="resources/google_signin_buttons/web/2x/btn_google_signin_light_normal_web@2x.png" alt="Sign in with Google"></a>
+                    </div> -->
+                    <!-- Sign in with apple start -->
+                    <!-- <div id="appleid-signin" class="signin-button" data-color="black" data-border="true" data-type="sign-in"></div>
+                    <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script> -->
+                <!-- Sign in with apple end -->
+                </div>
+            </div>
+
+            <!-- link to create account -->
+            <div class="wrongPageLink">
+                <p>Don't have an account?</p>
+                <a href="../createAccount/createAccount.html">Create one here</a>
+            </div>
+        </div>
+    </body>
+</html>

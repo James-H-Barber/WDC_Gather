@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/stylesheets/style.css" id="main-stylesheet">
+        <link rel="stylesheet" href="/stylesheets/settings.css">
+        <link rel="stylesheet" href="/stylesheets/admin.css">
+        <title>Admin Panel</title>
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Serif&family=Raleway&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="/js/svg-inject.js"></script>
+        <script src="/js/page.js"></script>
+        <script defer src="/js/nav.js"></script>
+        <script src="/js/admin.js" defer></script>
+    </head>
+    <body>
+        <div id="head"></div>
+        <main>
+            <div id="main">
+                <div id="menu-items">
+                    <div id="menu-title"><a href="/">Home</a> / Admin Panel</div>
+                    <button v-on:click="selected = 1; title = 'Personal Info'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 1) }"><img src="../src/svg/profile-icon.svg" alt="Profile settings icon" class="icon" onload="SVGInject(this);">Personal Info</button>
+                    <button v-on:click="selected = 2; title = 'Manage Users'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 2) }"><img src="../src/svg/user-svg.svg" alt="Security Icon" class="icon" onload="SVGInject(this);">Manage Users</button>
+                    <button v-on:click="selected = 3; title = 'Manage Events'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 3) }"><img src="../src/svg/events-icon.svg" alt="Privacy icon" class="icon" onload="SVGInject(this);">Manage Events</button>
+                    <!-- <button v-on:click="selected = 4; title = 'Administrators'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 4) }"><img src="../src/svg/advanced-icon.svg" alt="Advanced settings icon" class="icon" onload="SVGInject(this);">Administrators</button> -->
+                 </div>
+                <div id="settings">
+                    <h1 id="settings-title">{{ title }}</h1>
+                    <div v-if="selected == 1" id="general" class="section-background">
+                        <form id="settings-form">
+                            <section id="personal-information">
+                                <h5>First Name</h5>
+                                <div class="inputField">
+                                    <input class="settings-input settings-name" type="text" name="firstName" id="firstName" v-bind:value="firstName" required>
+                                </div>
+                                <h5>Last Name</h5>
+                                <div class="inputField">
+                                    <input class="settings-input settings-name" type="text" name="lastName" id="lastName" v-bind:value="lastName" required> <br />
+                                </div>
+                                <div>
+                                    <label for="displayLastName"><i>Display lastname?</i></label>
+                                    <input type="checkbox" name="displayLastName" v-bind:checked="displayLastName">
+                                </div>
+                            </section>
+                            <section id="email">
+                                <h5>E-Mail</h5>
+                                <div class="inputField">
+                                    <input class="settings-input" type="text" name="email" id="email-input" v-bind:value="email" required>
+                                </div>
+                            </section>
+                        </form>
+                        <button id="save" class="gather-button-style gather-button-normal" onclick="submitForm();"><strong>Save</strong></button>
+                    </div>
+                    <div v-if="selected == 2" id="manageUsers">
+                        <section id="manageUsers" class="inputField">
+                            <h5>Search for a user by First Name</h5>
+                            <p class="userText">Leave blank to show all users</p>
+                            <div class="searchUser inputField">
+                                <input class="settings-input" type="text" name="userLookup" id="userLookup" v-model="userSearchField">
+                                <button class="gather-button-search" v-on:click="getUsers()">Search</button>
+                            </div>
+                            <div class="resultsList">
+                                <div v-for="user in users">
+                                    <div class="userText">
+                                        <strong>USER:</strong> #{{ user.userID }}
+                                        <div><strong>Name:</strong> <input class="userInput" type="text" v-model="user.firstName"><input class="userInput" type="text" v-model="user.lastName"> <button class="userButton" v-on:click="changeName(user)">Change</button></div>
+                                        <div><strong>Email:</strong> {{ user.email }}</div>
+                                    </div>
+                                    <button class="userButton" v-on:click="makeAdmin(user)">Make Administrator</button><button class="userButton" v-on:click="deleteUser(user.email)">Delete</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div v-if="selected == 3" id="manageEvents">
+                        <section>
+                            <h5>Search for an event by name</h5>
+                            <p class="userText">Leave blank to show all events</p>
+                            <div class="searchUser inputField">
+                                <input class="settings-input" type="text" name="eventLookup" id="eventLookup" v-model="eventSearchField">
+                                <button class="gather-button-search" v-on:click="getEvents()">Search</button>
+                            </div>
+                            <div class="resultsList">
+                                <div v-for="event in events">
+                                    <div class="userText">
+                                        <strong>Event:</strong> #{{ event.eventID }}
+                                        <div><strong>Event name:</strong><input class="userInput" type="text" v-model="event.eventName"></div>
+                                        <div><strong>Event Owner:</strong><input class="userInput" type="text" v-model="event.eventOwner"></div>
+                                        <div><strong>Start-time:</strong><input class="userInput" type="text" v-model="event.eventStartTime"></div>
+                                        <div><strong>End-time:</strong><input class="userInput" type="text" v-model="event.eventEndTime"></div>
+                                    </div>
+                                    <button class="userButton" v-on:click="changeEvent(event)">Change details</button><button class="userButton" v-on:click="deleteEvent(event.eventID)">Delete</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- <div v-if="selected == 4" id="administrators">
+                    </div> -->
+                    <p id="response"></p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

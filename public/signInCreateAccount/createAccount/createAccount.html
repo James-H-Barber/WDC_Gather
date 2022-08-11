@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="../signInCreateAccount.css">
+        <title>Create Account</title>
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Serif&family=Raleway&display=swap" rel="stylesheet">
+
+        <!-- vue and js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="createAccount.js" defer></script>
+    </head>
+    <body>
+        <div>
+            <a href="../../index.html"><img src="../../src/img/logo.png"></a>
+        </div>
+
+        <!-- All content contained inside white div -->
+        <div class="contentBox">
+            <h2>Create Account</h2>
+
+            <div id="steps"><div class="step stepActive">1. Sign-up</div><div class="step">2. Availability</div><div class="step">3. Done!</div></div>
+            <!-- <form > -->
+                <!-- account entry fields -->
+                <div id="createAccount" class="entryFields">
+                    <div class="inputField">
+                        <div class="nameEntry">
+                            <input type="text" id="firstName" placeholder="First Name" v-model="firstName"/>
+                            <input type="text" id="lasttName" placeholder="Last Name" v-model="lastName"/>
+                        </div>
+                        <input type="text" placeholder="E-mail address" v-model="email"/>
+                        <input v-if="showPassword"  type="text" placeholder="Password" v-model="password"/>
+                        <input v-else type="password"  placeholder="Password" v-model="password"/>
+                        <input v-if="showPassword" type="text" placeholder="Confirm Password" v-model="confirmPassword"/>
+                        <input v-else type="password" placeholder="Confirm Password" v-model="confirmPassword"/>
+
+                    </div>
+
+                    <div class="belowInput">
+                        <div class="showPasswordCheck">
+                            <label>
+                                <input type="checkbox" id="showPassword" v-model="showPassword">
+                                 Show password
+                            </label>
+                        </div>
+                        <p class="error" v-if="inputError">{{ errorMsg }}</p>
+                        <button class="submitCreate submit" type="submit" v-on:click="checkInput()">Create Account</button>
+                    </div>
+                </div>
+
+                <!-- link to create account -->
+                <div class="wrongPageLink">
+                    <p>Already have an account?</p>
+                    <a href="../signIn/signin.html">Sign in here</a>
+                </div>
+            <!-- </form> -->
+        </div>
+    </body>
+</html>

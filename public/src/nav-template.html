@@ -1,0 +1,25 @@
+<header id="header">
+    <nav id="navigation_pane">
+
+    </nav>
+    <a id="logo" href="/" class="logo"><img src="/src/img/logo.png" alt="logo" class="logo"></a>
+    <div id="account">
+        <button type="button" id="account-button" class="gather-button-style" v-on:click="accountSel = !accountSel">
+            <object type="image/svg+xml" id="user-svg" data="/src/svg/user-svg.svg"></object>
+        </button>
+        <div id="account_dropdown" v-if="accountSel">
+            <div id="accountName">
+                <h3><img src="/src/svg/user-svg.svg" alt="logo" class="icon"  onload="SVGInject(this);">{{ firstName }} {{ lastName }}</h3>
+                <!-- <p id="et"> {{ email }} </p> -->
+            </div>
+            <a class="gather-button-style" href="/accountSettings/"><img src="/src/svg/settings-icon.svg" class="icon" onload="SVGInject(this);">Settings</a>
+            <a class="gather-button-style" href="#"><img src="/src/svg/events-icon.svg" class="icon" onload="SVGInject(this);">My Events</a>
+            <a class="gather-button-style" href="/createEvent/createEventName.html"><img src="/src/svg/createEvent-icon.svg" class="icon" onload="SVGInject(this);">Create Event</a>
+            <a v-if="admin == true" class="gather-button-style" href="/users/admin"><img src="/src/svg/admin-icon.svg" class="icon" onload="SVGInject(this);">Admin Panel</a>
+            <a class="gather-button-style" href="/logout"><img src="/src/svg/logout-icon.svg" class="icon" onload="SVGInject(this);">Sign-Out</a>
+        </div>
+    </div>
+    <div id="darkModeDiv" v-bind:style="{ 'top' : dModeTop }">
+        <button id="darkModeButton" onclick="changeDarkmode()"><img src="/src/svg/darkmode-off.svg" onload="SVGInject(this)"></button>
+    </div>
+</header>

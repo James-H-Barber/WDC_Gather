@@ -1,0 +1,58 @@
+.gather-button-search {
+    height: 40px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    color: var(--action-color);
+}
+
+.gather-button-search:hover {
+    background-color: var(--accent-color-highlight);
+}
+
+.searchUser > input,
+.searchUser > button {
+    display: inline-block;
+}
+
+.resultsList {
+    margin: 20px 30px 20px 0px;
+    /* margin-right: 20px; */
+    /* width: 80%; */
+    min-height: 50px;
+    background-color: var(--background-color);
+    border: solid 1px lightgray;
+    border-radius: 6px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.userText {
+    font-size: 1rem;
+    font-weight: 100;
+    color: var(--font-color);
+    padding: 5px;
+}
+
+.userText > div {
+    margin-left: 20px;
+}
+
+.userInput {
+    display: inline;
+    max-width: 100px;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.userButton {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    color: var(--action-color);
+}
+
+.userButton:hover {
+    background-color: var(--accent-color-highlight);
+}

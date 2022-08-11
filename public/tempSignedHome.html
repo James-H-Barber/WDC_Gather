@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="#">
+        <title>Admin Panel</title>
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Serif&family=Raleway&display=swap" rel="stylesheet">
+
+        <!-- Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="tempSignedHome.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
+            <p> Hello, {{ firstName }} {{ lastName }}</p>
+            <button type="submit" v-on:click="signOut()">Sign out</button>
+            <a v-if="admin" href="/users/admin">Admin panel</a>
+            <a href="createEvent/createEvent.html">Create event</a>
+        </div>
+    </body>
+</html>

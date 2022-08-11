@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap'); /*Montserrat*/
+
+* {
+    /* box-sizing: border-box; */
+    margin: 0;
+    padding: 0;
+    /* background-color: white; */
+}
+
+body {
+    font-family:'Montserrat', sans-serif;
+}
+
+/* .nav {
+    position: fixed;
+    width: 100vw;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
+    font: 120% system-ui;
+    background-color: white;
+    z-index: 1;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 25rem;
+}
+
+.nav-listlogo {
+    list-style: none;
+    margin-right: auto;
+    cursor: pointer;
+    position: absolute;
+    left: 330px;
+    background: none;
+}
+
+.logo{
+    width: 6.5rem;
+    transition: fill 250ms ease-in;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.nav-listitem {
+    list-style: none;
+    font-weight: 400;
+    position: relative;
+    padding: 2rem 1rem;
+    cursor:pointer;
+    transition: all 0s ease 0s;
+    text-decoration: none;
+    color: gray;
+    left: 30px;
+}
+
+.nav-listitemhome {
+    list-style: none;
+    font-weight: 500;
+    position: relative;
+    padding: 1.5rem 1rem;
+    cursor:pointer;
+    transition: all 0s ease 0s;
+    text-decoration: none;
+    color: black;
+    left: 30px;
+}
+
+.nav-listitem:hover {
+    color: black;
+}
+
+.nav-listitem:hover ul{
+    opacity:1;
+    visibility: visible;
+}
+
+.nav-listitem:focus ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-listdrop {
+    position:absolute;
+    top: 4rem;
+    left: -4rem;
+    box-shadow: 0 0 5px gray;
+    background-color: white;
+    border-radius: 0.2rem;
+    width: 17rem;
+    padding: 1rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap:0rem;
+    opacity: 0;
+    visibility: hidden;
+} */
+
+/* li {
+    font-size: 18px;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    list-style: none;
+    font-weight: 400;
+    position: relative;
+    padding: 1.5rem 1rem;
+    cursor:pointer;
+    transition: all 0s ease 0s;
+    text-decoration: none;
+    color: black;
+    transition: all 0.4s ease 0s;
+    text-align: left;
+} */
+
+/* i {
+    background-color: transparent;
+    margin-right: 1rem;
+}
+
+.account-setting:hover  {
+    background-color: #d3d3d3;
+    transition: all 0s ease 0s;
+}
+
+.account-logout:hover {
+    background-color: #d3d3d3;
+    transition: all 0s ease 0s; */
+/* } */
+
+/* nav2 */
+.nav2 {
+    position: absolute;
+    width: 100vw;
+    top: 5%;
+    background-color: white;
+    height: 100px;
+    box-shadow: 0 0px 10px gray;
+    clear: all;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.my-events-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    position: fixed;
+    left: 310px;
+    margin-right: auto;
+    padding: 39px;
+    margin-top: 2%;
+}
+
+.create-event-button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    right: 310px;
+    top: 20%;
+    margin-top: 2.5%;
+    padding: 10px 25px;
+    background-color: purple;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-right: 65px
+}
+
+button:hover {
+    background-color: rgba(128,0,128,0.7);
+}
+
+.scheduled-events-display {
+    /*background-color: ; */
+    width: 63%;
+    height: 100%;
+    position: fixed;
+    top: 30%;
+    left: 18%;
+    text-align: left;
+    font: 100% system-ui;
+    color: gray;
+}
+
+
+
+.scheduled-events {
+    background-color: white;
+    width: 29%;
+    height: 250px;
+    text-align: left;
+    font: 100% system-ui;
+    color: gray;
+    /* border-style: solid; */
+    margin-top: 2%;
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 6px;
+    box-shadow: 0 0 10px gray;
+}
+
+hr {
+    border: 1px solid #d3d3d3;
+}
+
+

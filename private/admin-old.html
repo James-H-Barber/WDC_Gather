@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/stylesheets/style.css" id="main-stylesheet">
+        <link rel="stylesheet" href="/stylesheets/settings.css">
+        <title>Admin Panel</title>
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Serif&family=Raleway&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="/js/svg-inject.js"></script>
+        <script src="/js/page.js"></script>
+        <script defer src="/js/nav.js"></script>
+        <script src="/js/settings.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <div id="main">
+                <div id="menu-items">
+                    <button v-on:click="selected = 1; title = 'Profile'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 1) }"><img src="../src/svg/profile-icon.svg" alt="Profile settings icon" class="icon" onload="SVGInject(this);">Profile</button>
+                    <button v-on:click="selected = 2; title = 'Manage Users'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 2) }"><img src="../src/svg/user-svg.svg" alt="Security Icon" class="icon" onload="SVGInject(this);">Manage Users</button>
+                    <button v-on:click="selected = 3; title = 'Manage Events'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 3) }"><img src="../src/svg/events-icon.svg" alt="Privacy icon" class="icon" onload="SVGInject(this);">Manage Events</button>
+                    <button v-on:click="selected = 4; title = 'Administrators'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 4) }"><img src="../src/svg/advanced-icon.svg" alt="Advanced settings icon" class="icon" onload="SVGInject(this);">Administrators</button>
+                 </div>
+                 <div id="settings">
+                     <form id="settings-form">
+                         <h1> {{ title }} </h1>
+                         <div id="head"></div>
+                         <h1>Personal info</h1>
+                         <p>Change name</p>
+                         <input type="text">
+                         <p>Change email</p>
+                         <input type="text">
+                         <p>Change password</p>
+                         <input type="text">
+                         <button>Save</button>
+
+                         <hr>
+                         <h1>Manage Users</h1>
+                         <button>View all users</button>
+                         <!-- <h2>Edit user:</h2> -->
+                         <p>Enter email</p>
+                         <input type="text">
+                         <button>Delete</button>
+                         <!-- <button>Edit</button>
+                         <p>Change name</p>
+                         <p>Change email</p>
+                         <p>Change password</p> -->
+                         <hr>
+
+                         <h1>Manage Events</h1>
+                         <button>View all events</button>
+                         <h2>Edit event:</h2>
+                         <p>Enter event ID</p>
+                         <input type="text">
+                         <button>Delete</button>
+                         <!-- <button>Edit</button> -->
+                         <!-- <p>Change name</p>
+                         <p>Change date</p>
+                         <p>Change time</p>
+                         <p>Change owner</p> -->
+                         <hr>
+                         <h1>Sign Up Admin</h1>
+                         <p>Enter email</p>
+                         <input type="text">
+                         <button>Sign up</button>
+
+                     </form>
+
+                 </div>
+        </main>
+
+    </body>
+</html>

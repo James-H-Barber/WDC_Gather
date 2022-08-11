@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Account Settings</title>
+        <link rel="stylesheet" href="../stylesheets/style.css" id="main-stylesheet">
+        <link rel="stylesheet" href="../stylesheets/settings.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="/js/svg-inject.js"></script>
+        <script src="/js/page.js"></script>
+        <script defer src="/js/nav.js"></script>
+        <script src="/js/settings.js" defer></script>
+    </head>
+    <body>
+        <div id="head"></div>
+        <main>
+            <div id="main">
+                <div id="menu-items">
+                    <div id="menu-title"><a href="/">Home</a> / Account Settings</div>
+                    <button v-on:click="selected = 1; title = 'Profile'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 1) }"><img src="../src/svg/profile-icon.svg" alt="Profile settings icon" class="icon" onload="SVGInject(this);">Profile</button>
+                    <button v-on:click="selected = 2; title = 'Security'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 2) }"><img src="../src/svg/settings-icon.svg" alt="Security Icon" class="icon" onload="SVGInject(this);">Security</button>
+                    <button v-on:click="selected = 3; title = 'Availability'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 3) }"><img src="../src/svg/events-icon.svg" alt="Calendar icon" class="icon" onload="SVGInject(this);">Availability</button>
+                    <button v-on:click="selected = 4; title = 'Privacy'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 4) }"><img src="../src/svg/privacy-icon.svg" alt="Privacy icon" class="icon" onload="SVGInject(this);">Privacy</button>
+                    <button v-on:click="selected = 5; title = 'Advanced'" class="gather-button-style" v-bind:class="{ 'gather-button-selected': (selected == 5) }"><img src="../src/svg/advanced-icon.svg" alt="Advanced settings icon" class="icon" onload="SVGInject(this);">Advanced</button>
+                 </div>
+                <div id="settings">
+                    <form id="settings-form">
+                        <h1 id="settings-title">{{ title }}</h1>
+                        <div v-if="selected == 1" id="general" class="section-background">
+                            <section id="personal-information">
+                                <h5>First Name</h5>
+                                <div class="inputField">
+                                    <input class="settings-input settings-name" type="text" name="firstName" id="firstName" v-bind:value="firstName" required>
+                                </div>
+                                <h5>Last Name</h5>
+                                <div class="inputField">
+                                    <input class="settings-input settings-name" type="text" name="lastName" id="lastName" v-bind:value="lastName" required> <br />
+                                </div>
+                                <div>
+                                    <label for="displayLastName"><i>Display lastname?</i></label>
+                                    <input type="checkbox" name="displayLastName" v-bind:checked="displayLastName">
+                                </div>
+                            </section>
+                            <section id="email">
+                                <h5>E-Mail</h5>
+                                <div class="inputField">
+                                    <input class="settings-input" type="text" name="email" id="email-input" v-bind:value="email" required>
+                                </div>
+                            </section>
+                            <section id="dark-mode">
+                                <h5>Darkmode</h5>
+                                <label class="switch">
+                                    <input type="checkbox" name="dark-mode" id="darkmode-check" v-bind:checked="darkMode" onclick="changeDarkmode()" v-model="darkMode">
+                                    <span class="slider"></span>
+                                </label>
+                            </section>
+                        </div>
+                        <div v-if="selected == 2" id="security">
+                            <section id="password" class="inputField">
+                                <h5>Password</h5>
+                                <h6>Old password</h6>
+                                <input class="settings-input" type="password" placeholder="***************" v-model="oldPassword" v-on:input="passwordLength()">
+                                <p class="passwordPrompt" id="oldPasswordPrompt">{{ passwordPrompt[0] }}</p>
+                                <h6>New password</h6>
+                                <input class="settings-input" type="password" placeholder="***************" v-model="newPassword[0]" v-on:input="passwordLength()">
+                                <p class="passwordPrompt" id="newPasswordPrompt">{{ passwordPrompt[1] }}</p>
+                                <h6>Repeat new password</h6>
+                                <input class="settings-input" type="password" placeholder="***************" v-model="newPassword[1]" v-on:input="passwordLength()">
+                                <p class="passwordPrompt" id="newPassowrdRepeatPrompt">{{ passwordPrompt[2] }}</p>
+                                <!-- <button class="gather-button-style gather-button-normal" ><strong>Update</strong></button> -->
+                            </section>
+                        </div>
+                        <div v-if="selected == 3" id="availability">
+                            <section>
+                                <p>Select available days:</p>
+                                <section id="days">
+                                    <div class="day">
+                                        <label class="switch">
+                                        <input type="checkbox" name="monday" v-model="availability[0]">
+                                        <span class="slider"></span>
+                                    </label> Monday</div>
+                                    <div class="day">
+                                        <label class="switch">
+                                            <input type="checkbox" name="tuesday" v-model="availability[1]">
+                                            <span class="slider"></span>
+                                        </label> Tuesday</div>
+                                    <div class="day">
+                                        <label class="switch">
+                                            <input type="checkbox" name="wednesday" v-model="availability[2]">
+                                            <span class="slider"></span>
+                                        </label> Wednesday</div>
+                                    <div class="day">
+                                        <label class="switch">
+                                            <input type="checkbox" name="thursday" v-model="availability[3]">
+                                            <span class="slider"></span>
+                                        </label> Thursday</div>
+                                    <div class="day">
+                                        <label class="switch">
+                                            <input type="checkbox" name="friday" v-model="availability[4]">
+                                            <span class="slider"></span>
+                                        </label> Friday</div>
+                                    <div class="day">
+                                        <label class="switch">
+                                            <input type="checkbox" name="saturday" v-model="availability[5]">
+                                            <span class="slider"></span>
+                                        </label> Saturday</div>
+                                    <div class="day">
+                                        <label class="switch">
+                                            <input type="checkbox" name="sunday" v-model="availability[6]">
+                                            <span class="slider"></span>
+                                        </label> Sunday</div>
+                                </section>
+                            </section>
+                        </div>
+                        <div v-if="selected == 4" id="privacy">
+                            <section>
+                                <h5>Preferred location</h5>
+                            </section>
+                            <section>
+                                <label for="analytics" v-bind:checked="shareAnalytics"><strong>Share analytics with us?</strong></label>
+                                <label class="switch">
+                                    <input type="checkbox" name="analytics" id="analytics">
+                                    <span class="slider"></span>
+                                </label>
+                            </section>
+                        </div>
+                        <div v-if="selected == 5" id="advanced">
+                            <section>
+                                <h5>Delete your account?</h5>
+                                <a id="delete" onclick="toggleHidden('deleteForm')">Delete Account</a>
+                            </section>
+                            <div id="deleteForm" class="hidden">
+                                <div id="backdrop"></div>
+                                <section class="inputField">
+                                    <h4>Are you sure you wish to delete your account?</h4>
+                                    <input class="settings-input" type="password" placeholder="Please confirm your password" v-model="password">
+                                    <button type="button" class="gather-button-normal" v-on:click="deleteAccount();">Yes</button><button type="button" class="gather-button-normal" onclick="toggleHidden('deleteForm')"> No, take me back</button>
+                                </section>
+                            </div>
+                        </div>
+                    </form>
+                    <button id="save" class="gather-button-style gather-button-normal" onclick="submitForm();"><strong>Save</strong></button>
+                    <p id="response"></p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

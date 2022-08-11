@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>template</title>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/settings.css">
+        <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script defer src="../js/page.js"></script>
+    </head>
+    <body>
+        <header id="header" v-on:blur="accountSel = false">
+            <a id="logo" href="page.html" class="logo"><img src="../src/img/logo.png" alt="logo" class="logo"></a>
+            <nav id="navigation_pane">
+                <ul id="nav">
+                    <li><a class="nav-button">Create Event</a></li>
+                    <li><a class="nav-button">View Events</a></li>
+                </ul>
+            </nav>
+            <div id="account">
+                <button type="button" id="account-button" class="gather-button-style" v-on:click="accountSel = !accountSel">
+                    <object type="image/svg+xml" id="user-svg" data="../src/svg/user-svg.svg"></object>
+                </button>
+                <div id="account_dropdown" v-if="accountSel">
+                    <h3>John Doe</h3>
+                    <a class="gather-button-style" href="settings.html">Settings</a>
+                    <a class="gather-button-style">My Events</a>
+                    <a class="gather-button-style">Sign-Out</a>
+                </div>
+            </div>
+        </header>
+    </body>
+    <p></p>
+</html>

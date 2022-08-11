@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <title>Create Eventy</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/stylesheet/style.css" id="main-stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+        <!--js-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="createEvent.js" defer></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src index.js></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="/js/svg-inject.js"></script>
+        <script defer src="/js/page.js"></script>
+        <script defer src="/js/nav.js"></script>
+    </head>
+    <body>
+    <div id="head"></div>
+        <div class = "tab-create">
+            <div class = "tab-tabs">
+                <div class = "active">1.Name</div>
+                <div class = "active">2.Invite</div>
+                <div class = "active">3.Time</div>
+                <div>4.Location</div>
+            </div>
+            <div class = "tab-body">
+                <div class = "details active">
+                    <div id = "time">
+                        <h2>Event Time</h2>
+                        <h1>Guests available times</h1>
+                        <div id="piechart"></div>
+                        <div id = "time" class = "form-input">
+                            <button id = "time" class = "button" type = "submit" onclick="setupPie()">Generate availability report</button> <!--Create event ID and post it into events-->
+                        </div>
+                        <div id = "time" class = "form-input">
+                            <span>Event start time</span>
+                            <input type = "datetime-local" v-model = "eventStartTime" placeholder = "Select date and time" required>
+                        </div>
+                        <div id = "time" class = "form-input">
+                            <span>Event end time</span>
+                            <input id = "time" type = "datetime-local" v-model = "eventEndTime" placeholder = "Select date and time" required>
+                        </div>
+                        <p class="error" v-if="inputError">{{ errorMsg }}</p>
+
+                            <div id = "time" class = "form-input">
+                                <button id = "time" class = "button" v-on:click="checkDateInput()">Next</button> <!--Create event ID and post it into events-->
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id = "invite"></div>
+
+    </body>
+    <!--flatpickr for datetime-->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</html>

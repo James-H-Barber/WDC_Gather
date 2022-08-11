@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap'); /*Montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
+:root {
+    --background-color: #333;
+    --accent-color-original: #7440b5;
+    --accent-color: #b831d6;
+    --accent-color-highlight: purple;
+    --action-color: #fff;
+    --highlight-color: #555;
+    --secondary-color: #3B3B3B;
+    --backdrop-color: #A9927D;
+    --selected-color: #666;
+    --font-color: #CCC;
+    --account-position: 6;
+    --header-transition-speed: 150ms;
+}
+
+body {
+    color: var(--font-color);
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+    transition: all var(--header-transition-speed) ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+li a {
+  text-decoration: none;
+  color: var(--font-color);
+  transition: color 100ms ease-in-out;
+}
+
+li a:hover {
+    color: var(--accent-color);
+}
+
+/* a:link, a:visited, a:hover, a:active {
+    color: var(--action-color);
+    text-decoration: none;
+} */
+
+#head {
+    width: 100%;
+    margin: 0;
+}
+
+header {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+    font-size: 20px;
+    position: fixed;
+    background: var(--background-color);
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 10%;
+    z-index: 1;
+    transition: box-shadow var(--header-transition-speed) ease-in-out;
+    transition: padding var(--header-transition-speed) ease-in-out;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0px 2px 10px black;
+}
+
+.shadow {
+    padding: 20px 10%;
+}
+
+.shadow > a > img {
+    transform: scale(0.7);
+}
+
+
+#navigation_pane {
+    display: inline;
+    height: 100%
+}
+
+#nav {
+    list-style-type: none;
+    margin: 0;
+    margin-right: 20px;
+    float: right;
+    height: 100%;
+}
+
+#nav > li {
+    color: var(--background-color);
+    float: left;
+    margin-left: 20px;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#account {
+    border: 1px solid var(--font-color);
+    overflow: hidden;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    padding: 0;
+}
+
+#account-button {
+    height: 100%;
+    background-color: var(--font-color);
+}
+
+#account-button:hover {
+    background-color: var(--action-color);
+}
+
+#user-svg {
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#account_dropdown {
+    position: absolute;
+    background-color: var(--secondary-color);
+    border: solid 1px var(--highlight-color);
+    border-radius: 2%;
+    padding: 0;
+    right: 10%;
+    top: 100%;
+    min-width: 280px;
+    overflow: hidden;
+    box-shadow: 0px 0px 2.9px RGB(0 0 0 / 22%);
+    z-index: 999;
+}
+
+#accountName {
+    border-bottom: solid 1px lightgray;
+    padding-bottom: 20px;
+}
+
+#accountName > h3{
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+#et {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+    padding-left: 50px;
+}
+
+#account_dropdown > a, .icon {
+    height: 20px;
+}
+
+#account_dropdown > a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+}
+
+
+.gather-button-style {
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+    border-radius:  5px;
+    color: var(--font-color);
+
+    transition: color 100ms ease-in-out;
+    transition: background-color 100ms ease-in-out;
+}
+
+.gather-button-style:hover {
+    background-color: var(--highlight-color);
+    color: var(--font-color);
+}
+
+.gather-button-selected,
+.gather-button-selected:hover {
+    background-color: var(--selected-color);
+    /* color: var(--background-color) */
+}
+
+.gather-button-normal {
+    width: auto;
+    margin: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 20px;
+    background-color: var(--accent-color);
+    color: var(--action-color);
+}
+
+.gather-button-normal:hover {
+    background-color: var(--accent-color-highlight);
+}
+
+#home {
+    position: relative;
+    display: inline;
+    max-width: 10%;
+    height: 100%;
+    border-radius: 50%;
+    align-items: center;
+    overflow: hidden;
+}
+
+#home > a {
+    border-radius: 50%;
+    display: inline;
+    color: var(--font-color);
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    padding: 0;
+}
+
+.nav-button {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 0;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    padding: 5px 10px;
+}
+
+/* input boxes */
+.inputField > input {
+    color: var(--font-color);
+    width: 70%;
+    height: 20px;
+    display: block;
+    background-color: var(--background-color);
+    margin: 20px auto 0;
+    padding: 10px;
+    border: 2px solid var(--accent-color);
+    border-radius: 6px;
+
+    /* font-size: 1em; */
+}
+
+svg {
+    fill: var(--font-color);
+}
+
+#darkModeDiv {
+    position: fixed;
+    right: 3px;
+    top: 80%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid 1px lightgray;
+    overflow: hidden;
+}
+
+#darkModeButton {
+    width:100%;
+    height: 100%;
+    border-radius: inherit;
+    border: none;
+    /* background-color: #999; */
+    transition: all 150ms ease-in-out;
+}
+
+#darkModeButton:hover {
+    background-color: #333;
+}
+
+#darkModeButton > svg {
+    width: 50%;
+    fill: #333;
+    transition: all 150ms ease-in-out;
+}
+
+#darkModeButton:hover > svg {
+    fill: lightgray;
+}

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap'); /*Montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
+
+* {
+    /* margin:0px;
+    padding:0px;
+    box-sizing:border-box; */
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    background: #F2F4F3;
+}
+
+.tab-create {
+    width:95%;
+    height: 80%;
+    max-width:700px;
+    background: white;
+    border: 1px solid #dfdfdf;
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+}
+
+.tab-create .tab-tabs {
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+}
+
+.tab-create .tab-tabs > div {
+    flex:1;
+    padding:15px;
+    text-align:center;
+    color:#555;
+    cursor: pointer;
+}
+
+
+.tab-create .tab-body {
+    position: relative;
+    min-height:360px;
+}
+
+.tab-create .tab-tabs > div.active {
+    border: 1px solid #7440b5;
+    color: white;
+    background: #c0a2e5;
+}
+
+.tab-create .tab-body > div{
+    opacity: 0;
+    padding: 5px 25px;
+    transition: opacity 300ms ease-in-out 0ms;
+    /* position: absolute;
+    width:100%; */
+    top: -150vh;
+}
+
+.tab-create .tab-body > div.active {
+    top: 0px;
+    opacity: 1;
+    transition: opacity 300ms ease-in-out 0ms;
+}
+
+.tab-create .tab-body > div h2 {
+    font-size: 25px;
+    color: #222;
+    text-align:center;
+    margin-bottom: 20px;
+}
+
+.tab-create .tab-body > div .form-input {
+    margin: 10px 0px;
+}
+
+
+.tab-create .tab-body > div .form-input input {
+    border: 2px solid #c0a2e5;
+    height: 40px;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.tab-create .tab-body > div .form-input button {
+    background: #7440b5;
+    color: white;
+    font-weight:600;
+    border-radius: 6px;
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.tab-create .tab-body > div .form-input label {
+    display: block;
+    font-size: 15px;
+}
+
+#map {
+    height: 600px;
+    width: 645px;
+    margin-right: 10px;
+}
+
+.error {
+    color: red;
+}
+
+h3 {
+    color:black;
+}
+
+#piechart {
+    height: 500px;
+    width: 645px;
+    margin-right: 10px;
+}

@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap'); /*Montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.nav_links li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    background-color: white;
+}
+
+header.landing {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 10%;
+    height: 100px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    /* Replace with 10% colour */
+    color: purple;
+}
+
+.getstarted-button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    padding: 9px 25px;
+    /* Replace with 10% colour */
+    background-color: purple;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    /* Replace with 10% colour but leave the 0.8 */
+    background-color: rgba(0,136,169,0.8);
+}
+
+.headline {
+    width: 90%;
+    color: #000;
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+.headline h1 {
+    font-size: 62px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1em;
+    letter-spacing: 3px;
+}
+
+.headline p {
+    font-size:20px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6em;
+    padding-top: 30px;
+}
+
+.headline-color {
+    color: purple;
+}
+
+.signup {
+    width: 90%;
+    position: absolute;
+    top: 69%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 300px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input,
+.button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: 0;
+}
+
+.form-input {
+    padding: 1.5em;
+    border: 0;
+    outline: none;
+}
+
+.form-input::placeholder {
+    opacity: 0.35;
+}
+
+.form-input:focus::placeholder {
+    opacity: 0;
+}
+
+.form-item:first-of-type {
+    position: relative;
+}
+
+.form-item:first-of-type::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.form-button {
+    padding: 1.25em 2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    /* Replace with 10% colour */
+    background-color: purple;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+@media only screen and (min-width: 550px) {
+    .form {
+        flex-direction: row;
+        max-width: 550px;
+        border: 8px white;
+        border-radius: 3em;
+    }
+
+    .form-button {
+        border-radius: 2em;
+        margin-left: auto;
+    }
+
+    .form-item {
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .form-item:first-of-type::after {
+        right: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 1px;
+        height: initial;
+    }
+
+
+    /* .supportin-image img {
+        width: 100%;
+        height: 100%;
+    } */
+}
+
+.supporting-image {
+    background-color: white;
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    text-align: left;
+}
+

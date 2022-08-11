@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Home page once signed in</title>
+    <script src="https://kit.fontawesome.com/2e01aaf0a8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="signed-home.js" defer></script>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" id="main-stylesheet">
+    <script src="/js/nav.js" defer></script>
+    <script src="/js/page.js" defer></script>
+    <script src="/js/svg-inject.js" defer></script>
+
+</head>
+<body onload="vueinst.getUserID()">
+    <div id="head"></div>
+
+   <div id="app">
+    <!-- Top navigation bar -->
+    <!-- <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-listlogo">
+                <a class="logo" href="#"><img src="/src/img/logo.png" alt="logo" class="logo"></a>
+            </li>
+            <li class="nav-listitemhome">Home</li>
+            <li class="nav-listitem">Availability</li>
+            <li class="nav-listitem">Account</li>
+                <ul class="nav-listdrop">
+                    <li class="account-setting"><i class="fa fa-gear" class="account-setting"></i>Account settings</li>
+                    <hr>
+                    <li class="account-logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
+                </ul>
+            </li>
+	    </ul>
+    </nav> -->
+    <!-- Second navigation bar -->
+    <nav class="nav2">
+        <h1 class="my-events-title">My Events</h1>
+        <!-- <ul>
+                <li>Scheduled events</li>
+            </ul> -->
+        <a class="cta" href="/createEvent/createEventName.html"><button class="create-event-button">✚ Create</button></a>
+    </nav>
+
+    <div class="scheduled-events-display">
+        <p>{{ firstName }} {{ lastName }}</p>
+        <hr>
+        <p class="error" v-if="eventInputError">No Events</p>
+        <!-- Scheduled event layout -->
+        <div class="scheduled-events" v-for="event in events">
+            <h1>{{ event.eventName }}</h1>
+            <h3>Start time:</h3>
+            <p>{{ event.eventStartTime }}</p>
+            <h3>End time:</h3>
+            <p>{{ event.eventEndTime }}</p>
+            <h3>Event Location:</h3>
+            <p>{{ event.eventLocation }}
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>

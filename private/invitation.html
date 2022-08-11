@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/signInCreateAccount.css">
+        <link rel="stylesheet" href="/stylesheets/availability.css">
+        <title>Sign In</title>
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Serif&family=Raleway&display=swap" rel="stylesheet">
+
+        <!-- Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="/js/availability-invite.js" defer></script>
+    </head>
+    <body>
+        <div>
+            <a href="/index.html"><img src="/src/img/logo.png" alt="logo"></a>
+            <hr>
+        </div>
+
+        <!-- All sign in option contained inside white div -->
+        <div class="contentBox">
+            <section>
+                <h3>Welcome to Gather! Please select what days per week you are available:</h3>
+                <section id="days">
+                    <div class="day">
+                        <label class="switch">
+                        <input type="checkbox" name="monday" v-model="availability[0]">
+                        <span class="slider"></span>
+                    </label> Monday</div>
+                    <div class="day">
+                        <label class="switch">
+                            <input type="checkbox" name="tuesday" v-model="availability[1]">
+                            <span class="slider"></span>
+                        </label> Tuesday</div>
+                    <div class="day">
+                        <label class="switch">
+                            <input type="checkbox" name="wednesday" v-model="availability[2]">
+                            <span class="slider"></span>
+                        </label> Wednesday</div>
+                    <div class="day">
+                        <label class="switch">
+                            <input type="checkbox" name="thursday" v-model="availability[3]">
+                            <span class="slider"></span>
+                        </label> Thursday</div>
+                    <div class="day">
+                        <label class="switch">
+                            <input type="checkbox" name="friday" v-model="availability[4]">
+                            <span class="slider"></span>
+                        </label> Friday</div>
+                    <div class="day">
+                        <label class="switch">
+                            <input type="checkbox" name="saturday" v-model="availability[5]">
+                            <span class="slider"></span>
+                        </label> Saturday</div>
+                    <div class="day">
+                        <label class="switch">
+                            <input type="checkbox" name="sunday" v-model="availability[6]">
+                            <span class="slider"></span>
+                        </label> Sunday</div>
+                </section>
+                <button id="submit" class="gather-button-normal" onclick="setAttending()">Submit</button>
+                <p id="response"></p>
+            </section>
+        </div>
+    </body>
+</html>
